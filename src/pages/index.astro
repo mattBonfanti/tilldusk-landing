@@ -31,6 +31,15 @@ import app from '../app.mjs';
     </ul>
   </div></section>
 
+  {app.sections?.map((s) => (
+    <section class="feats more"><div class="wrap">
+      <h2>{s.title}</h2>
+      {s.intro && <p class="intro" set:html={s.intro} />}
+      <ul>{s.items.map((i) => <li><h3>{i.title}</h3><p set:html={i.text} /></li>)}</ul>
+      {s.note && <p class="note" set:html={s.note} />}
+    </div></section>
+  ))}
+
   {app.install?.length > 0 && (
     <section class="inst"><div class="wrap">
       <h2>Install</h2>
@@ -41,6 +50,11 @@ import app from '../app.mjs';
   {app.caseStudy && (
     <section class="cs"><div class="wrap">
       <p>{app.caseStudy.text} <a href={app.caseStudy.href}>{app.caseStudy.label}</a></p>
+    </div></section>
+  )}
+  {app.related && (
+    <section class="cs"><div class="wrap">
+      <p>{app.related.text} <a href={app.related.href}>{app.related.label}</a></p>
     </div></section>
   )}
 </Base>
@@ -56,6 +70,7 @@ import app from '../app.mjs';
   .shots img{max-width:100%;max-height:560px;width:auto;height:auto;border-radius:8px}
   .feats{padding:4rem 0} .feats ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2rem}
   .feats li{border-top:2px solid var(--ink);padding-top:1rem}
+  .more{padding-top:0} .intro{max-width:64ch;margin:-.25rem 0 2rem} .note{max-width:64ch;margin:2rem 0 0;font-size:.9rem;color:#6A6A6A}
   .inst{padding:0 0 4rem} .inst ol{margin:0;padding-left:1.25rem;display:grid;gap:.6rem;max-width:64ch}
   .cs{padding:0 0 4rem} .cs p{border-left:3px solid var(--accent);padding-left:1rem}
 </style>

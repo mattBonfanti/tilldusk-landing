@@ -27,6 +27,28 @@ export default {
     { title: 'A forecast with honest margins', text: 'A central estimate and a cautious one, as a band. Built on Timestral, Mistral AI’s time-series model, running on your Mac.' },
     { title: 'Steps in only when asked', text: 'When the forecast runs out before evening, it proposes Low Power Mode. macOS asks for your password in its own dialog; the app never sees it.' },
   ],
+  sections: [
+    {
+      title: 'Why a forecasting model',
+      intro: 'macOS answers “how long will it last if I keep going like this”. Till Dusk answers a different question: “where will my charge be this evening, given how I usually use this Mac”. For that it uses <a href="https://mistral.ai/news/timestral/">Timestral</a>, Mistral AI’s time-series model.',
+      items: [
+        { title: 'No training on your data', text: 'Timestral-28M is a pretrained model. It is not fine-tuned on you: each forecast simply reads more of your history, up to about 110 days.' },
+        { title: 'A band, not a number', text: 'The model returns a median and 21 quantiles. That is where the central estimate and the cautious one come from, and why the chart shows a band.' },
+        { title: 'Runs on your Mac', text: 'Model, Python and PyTorch are inside the app and run on the CPU. Nothing is uploaded; there is no server to call.' },
+        { title: 'Tested, with honest limits', text: 'Six hours ahead, starting on battery: 6.8 points of average error against 20.4 for “keep the current pace”, roughly what macOS does. One hour ahead the current pace wins. The test is small: 20 discharge sessions on one Mac.' },
+      ],
+    },
+    {
+      title: 'Design choices',
+      items: [
+        { title: 'Show the uncertainty', text: 'A forecast without its margin invites false confidence. The cautious estimate is always on screen next to the central one.' },
+        { title: 'Quiet by default', text: 'It speaks up only when the forecast runs out before evening, and then it proposes Low Power Mode. It does not decide for you.' },
+        { title: 'Restraint over spectacle', text: 'One compact chart, no oversized graphs, a menu-bar battery drawn like the one macOS already has.' },
+        { title: 'Your password stays with macOS', text: 'Changing Low Power Mode goes through macOS’s own administrator dialog. The app never sees the password.' },
+      ],
+    },
+  ],
+  related: { text: 'From the same maker: a notch indicator for your coding agents, designed against The UX DeCode.', label: 'AgentNotch', href: 'https://agentnotch.mattbonfanti.com' },
   caseStudy: null,
   privacy: [
     'Till Dusk has no account, no analytics and no server. The app sends nothing over the network.',
