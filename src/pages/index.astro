@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import app from '../app.mjs';
+---
+<Base title={`${app.name} — ${app.tagline}`} description={app.description}>
+  <section class="on-dark hero">
+    <div class="wrap">
+      <p class="eyebrow">{app.platform}</p>
+      <h1>{app.tagline}</h1>
+      <p class="lead">{app.description}</p>
+      <div class="cta">
+        <a class="btn btn-a" href={app.download.href}>{app.download.label}</a>
+        {app.download.href !== app.repo && <a class="btn btn-g" href={app.repo}>Source on GitHub</a>}
+      </div>
+      <p class="req">{app.requirements}</p>
+    </div>
+  </section>
+
+  {app.screens?.length > 0 && (
+    <section class="shots"><div class="wrap">
+      {app.screens.map((s) => (
+        <figure class={s.wide ? "wide" : ""}><img src={s.src} alt={s.alt} width={s.w} height={s.h} loading="lazy" decoding="async" /></figure>
+      ))}
+    </div></section>
+  )}
+
+  <section class="feats"><div class="wrap">
+    <h2>{app.featuresTitle}</h2>
+    <ul>
+      {app.features.map((f) => <li><h3>{f.title}</h3><p>{f.text}</p></li>)}
+    </ul>
+  </div></section>
+
+  {app.install?.length > 0 && (
+    <section class="inst"><div class="wrap">
+      <h2>Install</h2>
+      <ol>{app.install.map((step) => <li set:html={step} />)}</ol>
+    </div></section>
+  )}
+
+  {app.caseStudy && (
+    <section class="cs"><div class="wrap">
+      <p>{app.caseStudy.text} <a href={app.caseStudy.href}>{app.caseStudy.label}</a></p>
+    </div></section>
+  )}
+</Base>
+<style>
+  .hero{padding:6rem 0 5rem} .hero h1{max-width:15ch}
+  .eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A}
+  .lead{font-size:1.25rem;line-height:1.55;color:#C9C9C9;max-width:56ch}
+  .cta{display:flex;flex-wrap:wrap;gap:.75rem;margin:2rem 0 1rem} .req{font-size:.9rem;color:#9A9A9A}
+  .shots{padding:4rem 0 1rem} .shots .wrap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem;align-items:start}
+  @media (max-width:700px){.shots .wrap{grid-template-columns:1fr}}
+  .shots figure.wide{grid-column:1/-1}
+  .shots figure{margin:0;background:#0A0A0A;border-radius:var(--r);padding:1.25rem;display:grid;place-items:center}
+  .shots img{max-width:100%;max-height:560px;width:auto;height:auto;border-radius:8px}
+  .feats{padding:4rem 0} .feats ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2rem}
+  .feats li{border-top:2px solid var(--ink);padding-top:1rem}
+  .inst{padding:0 0 4rem} .inst ol{margin:0;padding-left:1.25rem;display:grid;gap:.6rem;max-width:64ch}
+  .cs{padding:0 0 4rem} .cs p{border-left:3px solid var(--accent);padding-left:1rem}
+</style>

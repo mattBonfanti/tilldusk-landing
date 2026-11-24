@@ -1,0 +1,10 @@
+{
+  // Una landing per app. Per una nuova app: copia la cartella, cambia
+  // "name", il dominio qui sotto e src/app.mjs.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tilldusk",
+  "compatibility_date": "2026-11-24",
+  "assets": { "directory": "./dist/", "not_found_handling": "404-page", "html_handling": "auto-trailing-slash" },
+  "routes": [ { "pattern": "tilldusk.mattbonfanti.com", "custom_domain": true } ],
+  "workers_dev": false
+}

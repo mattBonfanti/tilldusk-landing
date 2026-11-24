@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import app from '../app.mjs';
+---
+<Base title={`Privacy — ${app.name}`} description={`What ${app.name} does with your data.`}>
+  <section style="padding:4rem 0"><div class="wrap">
+    <h1>Privacy</h1>
+    {app.privacy.map((p) => <p>{p}</p>)}
+    <p>Questions: <a href="mailto:matteo@mattbonfanti.com">matteo@mattbonfanti.com</a></p>
+  </div></section>
+</Base>
