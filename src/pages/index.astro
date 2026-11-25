@@ -9,8 +9,8 @@ import app from '../app.mjs';
       <h1>{app.tagline}</h1>
       <p class="lead">{app.description}</p>
       <div class="cta">
-        <a class="btn btn-a" href={app.download.href}>{app.download.label}</a>
-        {app.download.href !== app.repo && <a class="btn btn-g" href={app.repo}>Source on GitHub</a>}
+        <a class="btn btn-a" href="/go/download" rel="nofollow">{app.download.label}</a>
+        {app.download.href !== app.repo && <a class="btn btn-g" href="/go/source" rel="nofollow">Source on GitHub</a>}
       </div>
       <p class="req">{app.requirements}</p>
     </div>
@@ -49,12 +49,12 @@ import app from '../app.mjs';
 
   {app.caseStudy && (
     <section class="cs"><div class="wrap">
-      <p>{app.caseStudy.text} <a href={app.caseStudy.href}>{app.caseStudy.label}</a></p>
+      <p>{app.caseStudy.text} <a href="/go/case-study" rel="nofollow">{app.caseStudy.label}</a></p>
     </div></section>
   )}
   {app.related && (
     <section class="cs"><div class="wrap">
-      <p>{app.related.text} <a href={app.related.href}>{app.related.label}</a></p>
+      <p>{app.related.text} <a href="/go/related" rel="nofollow">{app.related.label}</a></p>
     </div></section>
   )}
 </Base>

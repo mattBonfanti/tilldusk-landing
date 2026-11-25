@@ -1,0 +1,15 @@
+# Link tracciati: ogni clic passa da qui, quindi finisce nelle analytics di Cloudflare.
+# Ogni /go/<nome> deve avere la versione con e senza / finale (verify.mjs controlla).
+
+/go/download https://github.com/mattBonfanti/till-dusk/releases/latest 302
+/go/download/ https://github.com/mattBonfanti/till-dusk/releases/latest 302
+/go/install-download https://github.com/mattBonfanti/till-dusk/releases/latest 302
+/go/install-download/ https://github.com/mattBonfanti/till-dusk/releases/latest 302
+/go/source https://github.com/mattBonfanti/till-dusk 302
+/go/source/ https://github.com/mattBonfanti/till-dusk 302
+/go/footer-source https://github.com/mattBonfanti/till-dusk 302
+/go/footer-source/ https://github.com/mattBonfanti/till-dusk 302
+/go/timestral https://mistral.ai/news/timestral/ 302
+/go/timestral/ https://mistral.ai/news/timestral/ 302
+/go/related https://agentnotch.mattbonfanti.com 302
+/go/related/ https://agentnotch.mattbonfanti.com 302

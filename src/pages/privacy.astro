@@ -6,6 +6,8 @@ import app from '../app.mjs';
   <section style="padding:4rem 0"><div class="wrap">
     <h1>Privacy</h1>
     {app.privacy.map((p) => <p>{p}</p>)}
+    <h2 style="margin-top:2.5rem">This website</h2>
+    {app.sitePrivacy.map((p) => <p>{p}</p>)}
     <p>Questions: <a href="mailto:matteo@mattbonfanti.com">matteo@mattbonfanti.com</a></p>
   </div></section>
 </Base>

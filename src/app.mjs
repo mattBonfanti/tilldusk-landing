@@ -17,7 +17,7 @@ export default {
     { wide: true, src: '/screens/tilldusk-menubar.png', w: 2352, h: 352, alt: 'The menu-bar battery in every state, on light and dark bars: full, half, low, charging, Low Power Mode, below threshold.' },
   ],
   install: [
-    'Download the TillDusk zip from <a href="https://github.com/mattBonfanti/till-dusk/releases/latest">the latest release</a>, open it and drag <strong>Till Dusk.app</strong> to Applications.',
+    'Download the TillDusk zip from <a href="/go/install-download" rel="nofollow">the latest release</a>, open it and drag <strong>Till Dusk.app</strong> to Applications.',
     'The app is not notarized by Apple, so on first launch macOS says it cannot verify it. Close the alert, open <strong>System Settings → Privacy &amp; Security</strong>, scroll to the message about Till Dusk and click <strong>Open Anyway</strong>.',
     'From then on it opens normally. You can start it at login from its panel.',
   ],
@@ -30,7 +30,7 @@ export default {
   sections: [
     {
       title: 'Why a forecasting model',
-      intro: 'macOS answers “how long will it last if I keep going like this”. Till Dusk answers a different question: “where will my charge be this evening, given how I usually use this Mac”. For that it uses <a href="https://mistral.ai/news/timestral/">Timestral</a>, Mistral AI’s time-series model.',
+      intro: 'macOS answers “how long will it last if I keep going like this”. Till Dusk answers a different question: “where will my charge be this evening, given how I usually use this Mac”. For that it uses <a href="/go/timestral" rel="nofollow">Timestral</a>, Mistral AI’s time-series model.',
       items: [
         { title: 'No training on your data', text: 'Timestral-28M is a pretrained model. It is not fine-tuned on you: each forecast simply reads more of your history, up to about 110 days.' },
         { title: 'A band, not a number', text: 'The model returns a median and 21 quantiles. That is where the central estimate and the cautious one come from, and why the chart shows a band.' },
@@ -55,5 +55,9 @@ export default {
     'Battery history is read from copies of the macOS power log and stays on your Mac. The forecast runs locally with the bundled model.',
     'To turn Low Power Mode on or off, the app asks macOS to show its own administrator dialog. The password goes to macOS, not to the app.',
     'Licenses: Timestral code is Apache 2.0; Mistral AI’s Timestral-28M weights are under a modified MIT license; the menu-bar battery is adapted from BatteryOracle by Michele Ivo Galella (MIT). The texts are inside the app, in Contents/Resources/licenses.',
+  ],
+  sitePrivacy: [
+    'This website uses Cloudflare Web Analytics, which counts page views without cookies and without following you across sites.',
+    'The Download and Source buttons go through a short redirect on this site, so I can count how many people click them. I keep only that count and the page it came from; I do not store your IP address or build a profile of you. Cloudflare, which hosts the site, sees the connection as any web host does and handles it under its own privacy policy. GitHub also keeps its own count of release downloads.',
   ],
 };
